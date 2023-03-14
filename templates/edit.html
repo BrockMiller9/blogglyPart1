@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <!-- <body>
+    <h2>Edit a User!</h2>
+    <form method="POST" action="{{ url_for('edit_user', user_id=user.id) }}">
+      <input
+        type="text"
+        name="first_name"
+        id=""
+        placeholder="first name"
+        value="{{user.first_name}}"
+      />
+      <input
+        type="text"
+        name="last_name"
+        id=""
+        placeholder="last name"
+        value="{{user.last_name}}"
+      />
+      <input
+        type="text"
+        name="image_url"
+        placeholder="image url"
+        value="{{user.image_url}}"
+      />
+      <button>Edit User</button>
+    </form>
+  </body> -->
+
+  <body>
+    <div class="container mt-5">
+      <h2>Edit User</h2>
+      <form method="POST" action="{{ url_for('edit_user', user_id=user.id) }}">
+        <div class="form-group">
+          <label for="first_name">First Name:</label>
+          <input
+            type="text"
+            name="first_name"
+            class="form-control"
+            id="first_name"
+            placeholder="Enter First Name"
+            value="{{user.first_name}}"
+          />
+        </div>
+        <div class="form-group">
+          <label for="last_name">Last Name:</label>
+          <input
+            type="text"
+            name="last_name"
+            class="form-control"
+            id="last_name"
+            placeholder="Enter Last Name"
+            value="{{user.last_name}}"
+          />
+        </div>
+        <div class="form-group">
+          <label for="image_url">Image URL:</label>
+          <input
+            type="text"
+            name="image_url"
+            class="form-control"
+            id="image_url"
+            placeholder="Enter Image URL"
+            value="{{user.image_url}}"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Update User</button>
+      </form>
+    </div>
+  </body>
+</html>
