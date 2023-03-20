@@ -106,20 +106,23 @@ def add_blog_post(user_id):
 def add_blog(user_id):
     title = request.form['title']
     content = request.form['content']
-    tags = request.form.getlist['name']
+    # tags = request.form.getlist('name')
+
+    tag_ids = [int(num) for num in request.form.getlist("tags")]
+    tags = Tag.query.filter(Tag.id.in_(tag_ids)).all()
 
     user_id = user_id
 
-    new_post = Post(title=title, content=content, user_id=user_id)
+    new_post = Post(title=title, content=content, user_id=user_id, tag=tags)
 
     db.session.add(new_post)
 
     db.session.commit()
 
-    for tag in tags:
-        new_post_tag = PostTag(post_id=new_post.id, tag_id=tag.id)
-        db.session.add(new_post_tag)
-        db.session.commit()
+    # for tag in tags:
+    #     new_post_tag = PostTag(post_id=new_post.id, tag_id=tag.id)
+    #     db.session.add(new_post_tag)
+    #     db.session.commit()
     return redirect(f'/{user_id}')
 
 
