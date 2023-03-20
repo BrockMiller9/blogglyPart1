@@ -25,7 +25,7 @@ class FlaskTests(unittest.TestCase):
         self.user_id = user.id
 
     def tearDown(self):
-        """Clean up any fouled transaction."""
+        """Clean up any failed transaction."""
 
         db.session.rollback()
 
